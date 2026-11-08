@@ -1,0 +1,74 @@
+{
+  "name": "kunupa-inventory-system",
+  "version": "1.0.0",
+  "description": "Professional Desktop Inventory Management System for Kunupa Natural Mineral Water",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron .",
+    "build:win": "electron-builder --win",
+    "build:portable": "electron-builder --win portable"
+  },
+  "keywords": [
+    "inventory",
+    "pos",
+    "water-distribution",
+    "kunupa",
+    "electron",
+    "sqlite",
+    "exceljs"
+  ],
+  "author": "Kunupa Natural Mineral Water",
+  "license": "ISC",
+  "build": {
+    "appId": "com.kunupa.inventory",
+    "productName": "Kunupa Natural Mineral Water Inventory Management System",
+    "copyright": "Copyright © 2026 Kunupa Natural Mineral Water",
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "assets/kunupa-logo.ico",
+      "artifactName": "Kunupa-Inventory-Setup.${ext}"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Kunupa Inventory System",
+      "uninstallDisplayName": "Kunupa Inventory Management System"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "index.html",
+      "src/**/*",
+      "assets/**/*",
+      "node_modules/**/*"
+    ]
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "exceljs": "^4.4.0",
+    "sql.js": "^1.12.0"
+  },
+  "devDependencies": {
+    "electron": "^33.2.0",
+    "electron-builder": "^25.1.8"
+  }
+}
